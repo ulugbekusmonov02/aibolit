@@ -169,6 +169,7 @@ export default function Home() {
               <img
                 src={img}
                 className="max-h-785 object-contain hidden lg:block"
+                alt="photo"
               />
             </div>
           </div>
@@ -383,10 +384,15 @@ function App() {
             </div>
           </div>
           <div className="hidden lg:flex  justify-end relative">
-            <img className="h-96 absolute  left-24 pb-12" src="/img/dog.png" />
+            <img
+              className="h-96 absolute  left-24 pb-12"
+              src="/img/dog.png"
+              alt="photo"
+            />
             <img
               className=" h-400  relative -top-16 z-10 "
               src="/img/mobileapp.png"
+              alt="photo"
             />
           </div>
         </div>

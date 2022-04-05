@@ -116,6 +116,7 @@ function MyPet() {
                 <img
                   src="/img/cat.png"
                   style={{ width: "90px", height: "90px" }}
+                  alt="photo"
                 />
                 <button className="text-lg text-green-600 opacity-60 hover:opacity-100 font-semibold">
                   изменить
@@ -174,6 +175,7 @@ function Reception() {
                 <img
                   style={{ width: "90px", height: "90px" }}
                   src="/img/reception.png"
+                  alt="photo"
                 />
                 <button className="text-green-600 opacity-60 hover:opacity-100 font-bold">
                   отменить <br></br> прием

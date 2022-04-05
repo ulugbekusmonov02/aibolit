@@ -25,7 +25,7 @@ function Collective() {
                 </div>
               </div>
               <div className="flex-1 space-y-10">
-                <img src="/img/collective.png" />
+                <img src="/img/collective.png" alt="photo" />
                 <div className="space-y-4" id="we">
                   <p className="text-xl font-serif font-semibold">О нас </p>
                   <p>
@@ -110,7 +110,11 @@ function Specialist(props) {
     <>
       <div className="flex border shadow-lg rounded-2xl py-6 px-4 space-x-4 transition-all hover:scale-105 select-none duration-500 cursor-pointer">
         <div className="space-y-8 flex flex-col items-center">
-          <img src={props.image} style={{ width: "160px", height: "95px" }} />
+          <img
+            src={props.image}
+            style={{ width: "160px", height: "95px" }}
+            alt="PHOTO"
+          />
           <p className=" text-green-600 text-xs select-none font-bold">
             {props.practise}
           </p>

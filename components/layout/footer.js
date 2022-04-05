@@ -109,9 +109,9 @@ function LinkFooter(props) {
   return (
     <ul className={props.styleClass}>
       {props.links.map((link, index) => (
-        <Link href={"#"}>
+        <Link href={"#"} key={index}>
           <a className="hover:underline hover:opacity-60 duration-500 transition-all transform">
-            <li key={index}>{link}</li>
+            <li>{link}</li>
           </a>
         </Link>
       ))}

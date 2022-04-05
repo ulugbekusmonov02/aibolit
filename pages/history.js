@@ -47,7 +47,7 @@ function History() {
                   </a>
                 </Link>
               </button>
-              <img src="/img/cat1.png" className="mt-20" />
+              <img src="/img/cat1.png" className="mt-20" alt="photo" />
               <Subtitle1 />
               <Subtitle2 />
               <Subtitle3 />
@@ -111,8 +111,8 @@ function Subtitle2() {
             className="lg:flex max-w-fit mx-auto lg:mx-0 space-y-4 lg:space-y-0 lg:space-x-10"
             style={{ width: "300px" }}
           >
-            <img src="/img/cat2.png" />
-            <img src="/img/dog1.png" />
+            <img src="/img/cat2.png" alt="photo" />
+            <img src="/img/dog1.png" alt="photo" />
           </div>
           <p>
             Врач-терапевт подходит к лечению животного комплексно,
