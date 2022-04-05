@@ -1,8 +1,77 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Layout from "../components/layout";
+import styles from "../styles/Home.module.css";
+import Link from "next/link";
+import {
+  Alarm,
+  AndroidA,
+  Apple,
+  Bandage,
+  Bone,
+  Capsula,
+  Cow,
+  Doctor,
+  Dog,
+  DogHouse,
+  Dogs,
+  Drug,
+  FacebookB,
+  FacebookMap,
+  Hand,
+  Heart,
+  InstagramB,
+  Intestines,
+  Knife,
+  Labaratory,
+  LabaratoryTwo,
+  MotherDog,
+  Next,
+  Phone,
+  Pow,
+  Scisser,
+  Scissors,
+  Snake,
+  Syringe,
+  Tablets,
+  Tiger,
+  TwenyFour,
+  VKontaktB,
+  YouTubeB,
+} from "../utils/icon";
+import { useState } from "react";
 
 export default function Home() {
+  const slider = [
+    {
+      title: "Комфортные оборудованные стационары",
+      image: "/img/second.png",
+    },
+    {
+      title: "Новейшее европейское оборудование",
+      image: "/img/third.png",
+    },
+    {
+      title: "Собственная современная лаборатория",
+      image: "/img/fourth.png",
+    },
+    {
+      title: "Зоомагазин по  доступным ценам",
+      image: "/img/five.png",
+    },
+  ];
+  const [slide2, setSlide2] = useState(true);
+  const [slide3, setSlide3] = useState(false);
+  const [slide4, setSlide4] = useState(false);
+  const [slide5, setSlide5] = useState(false);
+
+  const [title, setTitle] = useState(slider[0].title);
+  const [img, setImg] = useState(slider[0].image);
+
+  const changeSlider = (i) => {
+    setTitle(slider[i].title);
+    setImg(slider[i].image);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,59 +80,383 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <Layout>
+        <div className="flex  flex-col lg:flex-row lg:flex justify-between p-3 ">
+          <div className=" flex select-none  space-x-16 lg:space-x-0 lg:flex-col  order-1 lg:-order-1 text-md lg:text-xl lg:space-y-10 lg:ml-32 mt-5 lg:mt-20">
+            <button
+              onClick={() => {
+                changeSlider(0);
+                setSlide2(true);
+                setSlide3(false);
+                setSlide4(false);
+                setSlide5(false);
+              }}
+              className={`font-bold   ${
+                slide2 ? " border border-black rounded-full py-2 px-4" : ""
+              }`}
+            >
+              1
+            </button>
+            <button
+              onClick={() => {
+                changeSlider(1);
+                setSlide2(false);
+                setSlide3(true);
+                setSlide4(false);
+                setSlide5(false);
+              }}
+              className={`font-bold  ${
+                slide3 ? " border border-black rounded-full py-2 px-4" : " "
+              } `}
+            >
+              2
+            </button>
+            <button
+              onClick={() => {
+                changeSlider(2);
+                setSlide2(false);
+                setSlide3(false);
+                setSlide4(true);
+                setSlide5(false);
+              }}
+              className={`font-bold  ${
+                slide4 ? "border border-black rounded-full py-2 px-4" : ""
+              }`}
+            >
+              3
+            </button>
+            <button
+              onClick={() => {
+                changeSlider(3);
+                setSlide2(false);
+                setSlide3(false);
+                setSlide4(false);
+                setSlide5(true);
+              }}
+              className={`font-bold  ${
+                slide5 ? " border border-black rounded-full py-2 px-4" : ""
+              }`}
+            >
+              4
+            </button>
+          </div>
+          <div className="flex flex-1  lg:mt-14 ">
+            <div className="flex-1 -order-1 lg:order-0 flex flex-col lg:ml-44 mt-16">
+              <p className="text-4xl lg:text-6xl font-medium  tracking-widest font-serif ">
+                {title}
+              </p>
+              <Link href={"/registration"}>
+                <a className="py-3 w-52 mt-10 text-center bg-orange-300 rounded-3xl text-white opacity-70 hover:opacity-100 transform transition-all duration-500 font-medium">
+                  ЗАПИСАТЬСЯ
+                </a>
+              </Link>
+              <div className="hidden lg:flex mt-40 space-x-12">
+                <Link href={"#"}>
+                  <a>{InstagramB}</a>
+                </Link>
+                <Link href={"#"}>
+                  <a>{FacebookB}</a>
+                </Link>
+                <Link href={"#"}>
+                  <a>{VKontaktB}</a>
+                </Link>
+                <Link href={"#"}>
+                  <a>{YouTubeB}</a>
+                </Link>
+              </div>
+            </div>
+            <div>
+              <img
+                src={img}
+                className="max-h-785 object-contain hidden lg:block"
+              />
+            </div>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+        <MedTypes />
+        <Company />
+        <Benefits />
+        <App />
+        <Contacts />
+      </Layout>
     </div>
-  )
+  );
+}
+
+function MedTypes() {
+  return (
+    <>
+      <div className="max-w-6xl mx-auto mt-10 lg:mt-36 p-2">
+        <div className=" max-w-fit mx-auto flex flex-col md:grid md:grid-cols-2 lg:grid lg:grid-cols-4 gap-6">
+          <MedType text={"Терапия"} icon={Cow} />
+          <MedType text={"Хирургия"} icon={Knife} />
+          <MedType text={"Неврология"} icon={Dog} />
+          <MedType text={"Ортопедия"} icon={Bone} />
+          <MedType text={"Дерматология"} icon={Pow} />
+          <MedType text={"Офтальмология"} icon={Bandage} />
+          <MedType text={"Кардиология"} icon={Heart} />
+          <MedType text={"Стоматология"} icon={Tiger} />
+          <MedType text={"Репродуктология"} icon={Dogs} />
+          <MedType text={"Визуальная диагностика"} icon={Doctor} />
+          <MedType text={"Лаборатория"} icon={Capsula} />
+          <MedType text={"Онкология"} icon={Syringe} />
+          <MedType text={"Эндокринология"} icon={Intestines} />
+          <MedType text={"Экзотические животные"} icon={Snake} />
+          <MedType text={"Аптека"} icon={Tablets} />
+          <MedType text={"Груминг"} icon={Scissors} />
+        </div>
+      </div>
+    </>
+  );
+}
+
+function MedType(props) {
+  return (
+    <>
+      <div className="flex justify-between  px-5 py-5 border-2 shadow rounded-xl opacity-70 hover:opacity-100 hover:scale-105 hover:shadow-xl hover:duration-500">
+        <div className="flex flex-col justify-between  space-y-16 my-2 ">
+          <p className="font-medium  text-lg -top-3">{props.text}</p>
+          <span className="text-xs">26 услуг</span>
+        </div>
+        <div className="flex self-end ">{props.icon}</div>
+      </div>
+    </>
+  );
+}
+
+function Company() {
+  return (
+    <>
+      <section className="relative grid lg:grid-cols-2 bg-slate-200 mt-10 ">
+        <div className="max-w-fit  p-3  flex flex-col items-start lg:items-center lg:max-w-7xl mx-auto space-y-10 py-10 lg:py-28">
+          <p className="text-3xl lg:text-4xl font-semibold font-serif">
+            История компании
+          </p>
+          <p className="max-w-md">
+            История компании начинается 14 января 1999 года, когда было
+            образовано ООО «Чижи». Идея пришла, т.к. у основателя компании
+            Прозор Жанны Георгиевны была собака боксёр по кличке Бард…
+          </p>
+          <button className="flex items-center  text-green-500 font-bold space-x-4  group">
+            <Link href={"#"}>
+              <a>ЧИТАТЬ ДАЛЕЕ</a>
+            </Link>
+            <div className="group-hover:translate-x-2 transition-all duration-500">
+              {Next}
+            </div>
+          </button>
+        </div>
+        <div className="hidden   lg:flex flex-col items-start lg:items-center lg:max-w-7xl mx-auto space-y-10 py-10 lg:py-28 ">
+          <p className="flex flex-col items-start lg:items-center  space-y-10 text-6xl font-extrabold text-red-500 font-serif ">
+            1 150 000
+          </p>
+          <p className="text-3xl ">
+            питомцам мы помогли <br></br> за
+            <span className="text-4xl">18</span> лет работы
+          </p>
+          <img
+            className="absolute w-42 h-36 top-52 ml-48 hidden lg:block"
+            src="/img/image_bird.png"
+          />
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Benefits() {
+  return (
+    <>
+      <section className="max-w-7xl mx-auto my-20 lg:my-40 p-3">
+        <p className="flex justify-center items-center font-serif text-2xl lg:text-3xl font-semibold">
+          Почему хозяева выбирают нас?
+        </p>
+        <div className="max-w-fit mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mt-10 lg:mt-28">
+          <Benefit
+            mtext={"Работаем круглосуточно"}
+            icon={TwenyFour}
+            text={
+              "Мы готовы в любое время суток принять домашних питомцев и их хозяев"
+            }
+          />
+          <Benefit
+            mtext={"Широкий спектр услуг"}
+            icon={MotherDog}
+            text={
+              "Кроме широкопрофильных докторов  в клинике развиты узкие направления в ветеринарии – офтальмология, стоматология, дерматология, травматология, ортопедия и онкология"
+            }
+          />
+          <Benefit
+            mtext={"Большой опыт"}
+            icon={Hand}
+            text={
+              "Помимо лабораторного оборудования и цифрового рентгена в клинике используется современный эндоскоп KARL STORZ"
+            }
+          />
+          <Benefit
+            mtext={"Собственная лаборатория"}
+            icon={Labaratory}
+            text={
+              "30 высококвалифицированных врачей нашей клиники предоставляют ветеринарную помощь уже на протяжении 18 лет!"
+            }
+          />
+          <Benefit
+            mtext={"Оснащенные стационары"}
+            icon={DogHouse}
+            text={
+              "Оборудованная профессиональным оснащением производства компании IDEXX International Inc.(США), которое позволяет получить результаты исследования прямо на приеме"
+            }
+          />
+          <Benefit
+            mtext={"Новейшее оборудование"}
+            icon={LabaratoryTwo}
+            text={
+              "Обычный и инфекционный стационар с индивидуальным подогревом каждой клетки. Для питомцев в критическом состоянии предусмотрены кислородные камеры"
+            }
+          />
+          <Benefit
+            mtext={"Запись на прием онлайн"}
+            icon={Hand}
+            text={
+              "Запись на приём позволяет избежать ожиданий в очереди, но если вы не можете приехать - мы выезжаем на дом!"
+            }
+          />
+          <Benefit
+            mtext={"Аптека и зоомагазин"}
+            icon={Drug}
+            text={
+              "Для удобства в клинике предусмотрен аптечный пункт, а также бутик с одеждой и косметическими средствами для ухода за домашними любимцами"
+            }
+          />
+          <Benefit
+            mtext={"Груминг-салон"}
+            icon={Scisser}
+            text={
+              " Отдельный кабинет для проведения гигиенческих и косметических процедур, таких как мытьё и сушка, стрижка или тримминг, уход за ушами, глазами и когтями и многое другое"
+            }
+          />
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Benefit(props) {
+  return (
+    <>
+      <div className=" space-y-5 hover:scale-105 duration-500 cursor-pointer select-none">
+        <p className="font-semibold tracking-wider text-xl">{props.mtext}</p>
+        <div className="flex items-center space-x-6">
+          {props.icon}
+          <p className=" max-w-s text-md">{props.text}</p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <section className=" bg-orange-999 ">
+        <div className="max-w-6xl mx-auto py-14 lg:pt-36 grid lg:grid-cols-2 text-white p-3">
+          <div className="space-y-6">
+            <span className="text-lg">скоро</span>
+            <p className="text-3xl lg:text-5xl font-bold  font-serif">
+              Удобное приложение для питомцев и их хозяев
+            </p>
+            <div className="flex  flex-col md:flex md:flex-row md:space-y-0 md:justify-evenly lg:flex-row space-y-4 lg:space-y-0 lg:space-x-9">
+              <button className="flex items-center w-48 text-white py-1 px-8 bg-black border-white border rounded-2xl space-x-3">
+                {Apple}
+                <div className="flex flex-col">
+                  <span className="text-xs self-start">Загрузите в</span>
+                  <span className="text-md font-medium">App Store</span>
+                </div>
+              </button>
+              <button className="flex items-center w-48 text-white py-1 px-8 bg-black border-white border rounded-2xl space-x-3">
+                {Apple}
+                <div className="flex flex-col">
+                  <span className="text-xs self-start">Загрузите в</span>
+                  <span className="text-md font-medium">App Store</span>
+                </div>
+              </button>
+            </div>
+          </div>
+          <div className="hidden lg:flex  justify-end relative">
+            <img className="h-96 absolute  left-24 pb-12" src="/img/dog.png" />
+            <img
+              className=" h-400  relative -top-16 z-10 "
+              src="/img/mobileapp.png"
+            />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Contacts() {
+  return (
+    <>
+      <section className=" my-12 lg:my-24">
+        <div className="max-w-6xl  mx-auto grid lg:grid-cols-2 p-3">
+          <div>
+            <p className="text-3xl flex items-center justify-center  lg:justify-start font-bold font-serif tracking-wider">
+              Контакты
+            </p>
+            <div className="flex flex-col md:flex-row items-center justify-center lg:items-start lg:flex-col  md:space-x-4 lg:space-x-0">
+              <Contact
+                mtext={"Айболит на Краснополянской"}
+                text1={"Дзержинский район, ул. Краснополянская, 30"}
+                text2={"96 22 92"}
+                text3={"Круглосуточно"}
+              />
+              <Contact
+                mtext={"Айболит на Тулака"}
+                text1={"Советский район, ул. Карла Маркса, 7"}
+                text2={"96 22 92"}
+                text3={"Круглосуточно"}
+              />
+            </div>
+          </div>
+          <div>
+            <iframe
+              className="hidden lg:block"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577336.764106847!2d36.82512728226206!3d55.580748067851246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2s!4v1648444955458!5m2!1sru!2s"
+              width="500"
+              height="600"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function Contact(props) {
+  return (
+    <>
+      <div className="space-y-9 mt-10">
+        <p className="font-semibold text-2xl">{props.mtext}</p>
+        <div className="space-y-9 ml-6">
+          <div className="flex items-center space-x-5">
+            {FacebookMap}
+            <p className=" max-w-s">{props.text1}</p>
+          </div>
+          <div className="flex items-center space-x-5">
+            {Phone}
+            <p>{props.text2}</p>
+          </div>
+          <div className="flex items-center space-x-5">
+            {Alarm}
+            <p>{props.text3}</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
