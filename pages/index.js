@@ -429,7 +429,7 @@ function Contacts() {
             <iframe
               className="hidden lg:block"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d577336.764106847!2d36.82512728226206!3d55.580748067851246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54afc73d4b0c9%3A0x3d44d6cc5757cf4c!2z0JzQvtGB0LrQstCwLCDQoNC-0YHRgdC40Y8!5e0!3m2!1sru!2s!4v1648444955458!5m2!1sru!2s"
-              width="500"
+              width="650"
               height="600"
               style={{ border: 0 }}
               allowFullScreen=""

@@ -92,7 +92,7 @@ function Services() {
   const [money1, setMoney1] = useState(prices[0].firstP);
 
   const [text2, setText2] = useState(prices[0].second);
-  const [money2, setMoney2] = useState(prices.secondP);
+  const [money2, setMoney2] = useState(prices[0].secondP);
 
   const [text3, setText3] = useState(prices[0].third);
   const [money3, setMoney3] = useState(prices[0].thirdP);

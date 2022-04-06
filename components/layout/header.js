@@ -56,6 +56,7 @@ function Header() {
               </div>
             </div>
             <Pages page={"/contact"} text={"Контакты"} />
+            <Pages page={"/blog"} text={"Блог"} />
           </ul>
 
           <button
@@ -121,10 +122,14 @@ function MobileMenu(props) {
           !props.menu ? "translate-x-0 shadow-xl" : "-translate-x-full"
         }`}
       >
-        <ul className="uppercase text-green-600  font-bold text-md  space-y-14 mt-2">
+        <ul className="uppercase text-green-600  font-bold text-md  space-y-8 mt-2">
           <Pages page={"/user"} text={"Личный кабинет"} />
           <Pages page={"/history"} text={"О нас"} />
           <Pages page={"/contact"} text={"Контакты"} />
+          <Pages page={"/service"} text={"Услуги и цены"} />
+          <Pages page={"/history"} text={"История компании"} />
+          <Pages page={"/collective"} text={"Коллектив"} />
+          <Pages page={"/blog"} text={"Блог"} />
         </ul>
         <button onClick={props.closeM}>{Close}</button>
       </div>
